@@ -1,0 +1,19 @@
+.movies {
+  ion-icon{
+    float: right;
+  }
+  .movie{
+    width: 33.3%;
+    float: left;
+    .poster{
+      padding: 5px;
+    }
+    h3{
+      text-align: center;
+    }
+    .buy_btn{
+      text-align: center;
+    }
+  }
+
+}

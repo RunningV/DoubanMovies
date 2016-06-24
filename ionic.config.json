@@ -1,0 +1,12 @@
+{
+  "name": "doubanMovies",
+  "app_id": "",
+  "v2": true,
+  "typescript": true,
+  "proxies": [
+    {
+      "path": "/movies",
+      "proxyUrl": "http://api.douban.com/movies"
+    }
+  ]
+}

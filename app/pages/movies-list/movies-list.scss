@@ -1,0 +1,38 @@
+.movies-list {
+  display: -webkit-box;
+  ion-label{
+    overflow: visible;
+  }
+  .img{
+    width: 20%;
+    margin: 5px;
+    float: left;
+  }
+  h2{
+    font-size: 2rem;
+    text-overflow: ellipsis;
+  }
+  h5{
+    color: #252525;
+  }
+  p{
+    position: relative;
+    height: 85px;
+    overflow: hidden;
+    color: #8e8e8e;
+    white-space: normal;
+    word-break: break-all;
+  }
+  p:after{
+    content: '...';
+    font-weight: bold;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding-left: 10px;
+  }
+
+  .movies-over{
+    text-align: center;
+  }
+}

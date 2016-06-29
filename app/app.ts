@@ -2,12 +2,11 @@ import {Component, ViewChild, provide} from '@angular/core';
 import {BrowserXhr, Http, HTTP_PROVIDERS, JSONP_PROVIDERS} from '@angular/http';
 import {Platform, ionicBootstrap, Nav} from 'ionic-angular';
 import {StatusBar} from 'ionic-native';
-import {TabsPage} from './pages/tabs/tabs';
+//import {TabsPage} from './pages/tabs/tabs';
 
 import {MoviesPage} from './pages/movies/movies';
+import {MovieDetailPage} from './pages/movie-detail/movie-detail';
 import {MoviesData} from './providers/movies-data';
-import {CORSBrowserXHR} from './CORSBrowserXHR';
-
 
 @Component({
   templateUrl: 'build/app.html'

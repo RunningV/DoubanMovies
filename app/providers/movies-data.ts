@@ -48,5 +48,17 @@ export class MoviesData {
     return this.http.get('http://api.douban.com/v2/movie/top250')
       .map(res => res.json());
   }
+
+  loadHotMovies() {
+    return this.http.get('http://api.douban.com/v2/movie/in_theaters')
+      .map(res => res.json());
+  }
+
+  loadComments(id) {
+    let url = 'http://api.douban.com/v2/movie/subject/' + id;
+    return this.http.get(url)
+      .map(res => res.json())
+  }
+
 }
 

@@ -1,0 +1,67 @@
+<!--
+  Generated template for the MovieDetailPage page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-navbar *navbar favorite>
+  <ion-title text-center>movie-detail</ion-title>
+</ion-navbar>
+
+<ion-content padding class="movie-detail">
+ <div *ngIf="movieData">
+  <div class="head">豆瓣售价28元起</div>
+  <div class="content">
+    <div class="img">
+      <img src="{{movieData.images.large}}" alt="">
+    </div>
+    <h3>{{movieData.title}} <span>{{movieData.aka}}</span></h3>
+    <p><span>{{movieData.rating.average}}</span>' <span>{{movieData.comments_count}}</span>人评价</p>
+    <p favorite><span *ngFor="let cast of movieData.casts">{{cast.name}}/</span>
+    </p>
+    <p>{{movieData.genres}}</p>
+    <p>{{movieData.year}}上映</p>
+    <div class="seen-btn">
+      <button small light>想看</button>
+      <button small light>看过</button>
+    </div>
+  </div>
+  <div class="brief">
+    <div class="movie-message">
+      <h4>影片信息</h4>
+      <ul>
+            <li>
+                <label>导演</label>
+                <span *ngFor="let dir of movieData.directors">{{dir.name}}/</span>
+            </li>
+            <li *ngIf="movieData.original_title">
+                <label>又名</label>
+                <span>{{movieData.original_title}}</span>
+            </li>
+            <li>
+                <label>类型</label>
+                <span *ngFor="let type of movieData.genres">{{type}}</span>
+            </li>
+            <li>
+                <label>地区</label>
+                <span *ngFor="let site of movieData.countries">{{site}}</span>
+            </li>
+            <li *ngIf="movieData.languages">
+                <label>语言</label>
+                <span>{{movieData.languages}}</span>
+            </li>
+            <li *ngIf="movieData.durations">
+                <label>片长</label>
+                <span>{{movieData.durations}}</span>
+            </li>
+
+    </ul>
+    </div>
+
+    <div class="movie-brief">
+      <h4>剧情简介</h4>
+      <p>{{movieData.summary}}</p>
+    </div>
+  </div>
+ </div>
+</ion-content>

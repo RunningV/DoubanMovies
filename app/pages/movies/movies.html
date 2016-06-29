@@ -4,7 +4,7 @@
   See http://ionicframework.com/docs/v2/components/#navigation for more info on
   Ionic pages and navigation.
 -->
-<ion-navbar *navbar primary>
+<ion-navbar *navbar favorite>
   <button menuToggle>
     <ion-icon name="menu"></ion-icon>
   </button>
@@ -12,15 +12,15 @@
 </ion-navbar>
 
 <ion-content padding class="movies">
-  <ion-list>
-    <button ion-item>Hot Movies
+  <ion-list *ngIf="topMoviesData">
+    <button ion-item (click)="toMoviesList(topMoviesId)">Hot Movies
       <ion-icon name="ios-arrow-forward"></ion-icon>
     </button>
-    <ion-card *ngIf="topMoviesData">
+    <ion-card>
       <template ngFor let-movie
         [ngForOf]="topMoviesData.subjects"
         let-i="index">
-        <div class="movie" *ngIf="i < 3">
+        <div class="movie" *ngIf="i < 3" (click)="goDetail(movie.id)">
           <div class="poster">
             <img src="{{movie.images.small}}" alt="{{movie.alt}}">
           </div>
@@ -32,4 +32,52 @@
       </template>
     </ion-card>
   </ion-list>
+
+  <ion-list *ngIf="latestMoviesData">
+    <button ion-item (click)="toMoviesList(latestMoviesData)">Latest Movies
+      <ion-icon name="ios-arrow-forward"></ion-icon>
+    </button>
+    <ion-card>
+      <template ngFor let-movie
+        [ngForOf]="latestMoviesData.subjects"
+        let-i="index">
+        <div class="movie" *ngIf="i < 3" (click)="goDetail(movie.id)">
+          <div class="poster">
+            <img src="{{movie.images.small}}" alt="{{movie.alt}}">
+          </div>
+          <h3>{{movie.title}}</h3>
+          <div class="buy_btn">
+            <button small light>选座购票</button>
+          </div>
+        </div>
+      </template>
+    </ion-card>
+  </ion-list>
+
+  <ion-list *ngIf="latestMoviesComments && latestMoviesComments.length > 0">
+    <button ion-item>Interesting Comments
+      <ion-icon name="ios-arrow-forward"></ion-icon>
+    </button>
+
+    <ion-card>
+      <template ngFor let-comment
+        [ngForOf]="latestMoviesComments"
+        let-i="index">
+        <ion-item class="comment" *ngIf="i < 5">
+          <div class="img">
+            <img src="{{comment.images.small}}">
+          </div>
+          <h3>{{comment.title}} -- {{comment.year}}</h3>
+          <p>{{comment.summary}}</p>
+        </ion-item>
+      </template>
+    </ion-card>
+  </ion-list>
+  <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+    <ion-infinite-scroll-content
+      loadingSpinner="ios-small">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+
 </ion-content>
+<!-- <ion-spinner name="ios-small" text-center></ion-spinner> -->

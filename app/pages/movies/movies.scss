@@ -6,7 +6,7 @@
     width: 33.3%;
     float: left;
     .poster{
-      padding: 5px;
+      padding: 10px;
     }
     h3{
       text-align: center;
@@ -16,4 +16,42 @@
     }
   }
 
+  /******comment*******/
+  .comment{
+    display: -webkit-box;
+    ion-label{
+      overflow: visible;
+    }
+    .img{
+      width: 20%;
+      float: left;
+    }
+    h3{
+      color: #252525;
+      text-overflow: ellipsis;
+    }
+    p{
+      position: relative;
+      height: 85px;
+      overflow: hidden;
+      color: #8e8e8e;
+      white-space: normal;
+      word-break: break-all;
+    }
+    p:after{
+      content: '...';
+      font-weight: bold;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      padding-left: 10px;
+    }
+  }
+}
+
+ion-spinner{
+  position: fixed;
+  bottom: 0;
+  left: 46%;
+  z-index: 999;
 }
